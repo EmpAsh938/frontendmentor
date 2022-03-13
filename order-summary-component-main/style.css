@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+
+:root {
+  /* colors */
+  --pale-blue: hsl(225, 100%, 94%);
+  --bright-blue: hsl(245, 75%, 52%);
+  --very-pale-blue: hsl(225, 100%, 98%);
+  --desaturated-blue: hsl(224, 23%, 55%);
+  --dark-blue: hsl(223, 47%, 23%);
+  /* screen */
+  --mobile: 375px;
+  --desktop: 1440px;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-size: 100%;
+  font-family: "Red Hat Display", sans-serif;
+  max-height: 100vh;
+  height: 100%;
+  letter-spacing: 1.125;
+  background-color: var(--pale-blue);
+  background-image: url("./images/pattern-background-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.card {
+  width: 100%;
+  max-width: calc(var(--mobile) - 50px);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px var(--very-pale-blue);
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.card > img {
+  display: block;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-component {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-component > h3 {
+  font-size: 20px;
+  color: var(--dark-blue);
+}
+
+.card-component > p {
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--desaturated-blue);
+}
+
+.plans {
+  display: flex;
+  padding: 0 5px;
+  margin: 15px 0;
+  gap: 10px;
+}
+
+.plans > button {
+  text-decoration: underline;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: var(--bright-blue);
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.plans > button:hover {
+  text-decoration: none;
+  color: var(--desaturated-blue);
+}
+
+.plans-year {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* border: solid red; */
+}
+
+.plans-year > h4 {
+  color: var(--dark-blue);
+  font-size: 15px;
+}
+
+.plans-year > span {
+  font-size: 14px;
+  color: var(--desaturated-blue);
+}
+
+.card-component > button {
+  font-size: 0.9rem;
+  /* margin: 5px 0; */
+  font-weight: bold;
+  padding: 12px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.card-component > button:first-of-type {
+  color: var(--pale-blue);
+  background-color: var(--bright-blue);
+}
+.card-component > button:last-of-type {
+  color: var(--desaturated-blue);
+  background-color: var(--pale-blue);
+}
+.card-component > button:first-of-type:hover {
+  color: var(--very-pale-blue);
+  background-color: var(--desaturated-blue);
+}
+.card-component > button:last-of-type:hover {
+  color: var(--dark-blue);
+}
+
+@media screen and (min-width: var(--mobile)) {
+  body {
+    background-image: url("./images/pattern-background-desktop.svg");
+  }
+}
