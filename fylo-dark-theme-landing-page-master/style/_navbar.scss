@@ -1,0 +1,39 @@
+.navbar {
+  width: 100%;
+  padding: 30px;
+
+  &__wrapper {
+    max-width: $desktop;
+    margin: auto;
+    @include flex(row);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    img {
+      width: 80px;
+      //   height: 25px;
+    }
+  }
+  &__links {
+    a {
+      margin: 0 10px;
+      transition: all 0.3s linear;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@include rwd($mobile) {
+  .navbar {
+    &__links {
+      a {
+        margin: 0 15px;
+      }
+    }
+  }
+}

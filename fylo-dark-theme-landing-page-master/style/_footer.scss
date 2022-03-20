@@ -1,0 +1,156 @@
+.footer {
+  position: relative;
+  padding-top: 200px;
+  padding-bottom: 50px;
+  background-color: $primary-dark-blue-3;
+
+  &__getstarted {
+    position: absolute;
+    top: -25%;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+  }
+
+  &__section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 30px;
+  }
+
+  &__container {
+    max-width: 700px;
+    background-color: $primary-dark-blue-1;
+    padding: 20px 50px;
+    border-radius: 5px;
+    @include flex(column);
+    gap: 15px;
+    h2 {
+      @include text();
+      font-size: 1.6rem;
+    }
+    p {
+      text-align: center;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    form {
+      @include flex(column);
+      // align-items: center;
+      justify-content: center;
+      gap: 15px;
+
+      input {
+        font-size: 1rem;
+        padding: 8px 10px;
+        border-radius: 25px;
+        border: none;
+        outline: none;
+      }
+
+      button {
+        background-color: $accent-blue;
+        color: $neutral-white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: 700;
+
+        &:hover {
+          background-color: $accent-cyan;
+        }
+      }
+    }
+  }
+
+  img {
+    height: 50px;
+  }
+  &__content {
+    // @include flex(column);
+    display: grid;
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  &__contact {
+    // max-width: 500px;
+    @include flex(column);
+    gap: 20px;
+    &--box {
+      @include flex(column);
+      gap: 5px;
+    }
+  }
+  &__info {
+    @include flex(column);
+    gap: 15px;
+    &--box {
+      @include flex(column);
+      gap: 5px;
+
+      a {
+        width: fit-content;
+      }
+    }
+  }
+
+  &__socials {
+    @include flex(row);
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    i {
+      height: 25px;
+      width: 25px;
+      border: 1px solid $neutral-white;
+      font-size: 1rem;
+      border-radius: 50%;
+      text-align: center;
+      font-style: normal;
+      cursor: pointer;
+      transition: all 0.3s linear;
+      &:hover {
+        border-color: $accent-cyan;
+        color: $accent-cyan;
+      }
+    }
+  }
+}
+
+@include rwd(500px) {
+  .footer {
+    &__container {
+      form {
+        @include flex(row);
+      }
+    }
+    img {
+      height: 40px;
+    }
+    &__content {
+      // margin: 0;
+      // @include flex(row);
+      grid-template-columns: 1.5fr 1fr 1fr;
+      // justify-content: space-between;
+    }
+    &__contact {
+      @include flex(row);
+      // border: solid red;
+      gap: 40px;
+    }
+
+    &__info {
+      justify-self: right;
+      @include flex(row);
+      gap: 40px;
+    }
+
+    &__socials {
+      justify-self: right;
+    }
+  }
+}

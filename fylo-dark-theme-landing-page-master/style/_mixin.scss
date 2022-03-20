@@ -1,0 +1,16 @@
+@mixin rwd($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+}
+
+@mixin text() {
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 700;
+}
