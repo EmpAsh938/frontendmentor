@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+:root {
+  /* colors */
+  --primary-bright-blue: hsl(220, 98%, 61%);
+  --primary-check-bg: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  /* screen */
+  --mobile: 375px;
+  --desktop: 1440px;
+}
+
+.dark {
+  --text-dark-blue: hsl(0, 0%, 98%); /* text-todo */
+  --very-dark-blue: hsl(235, 21%, 11%); /* bottom-bg */
+  --very-dark-d-blue: hsl(235, 24%, 19%);
+  --light-gray-blue: hsl(234, 39%, 85%);
+  --light-gray-blue-hover: hsl(236, 33%, 92%);
+  --dark-gray-blue: hsl(234, 11%, 52%);
+  --very-dark-gray-blue: hsl(233, 14%, 35%);
+  --very-dark-gray-blue-hover: hsl(237, 14%, 26%);
+  --bg-desktop: url("./images/bg-desktop-dark.jpg");
+  --bg-mobile: url("./images/bg-mobile-dark.jpg");
+}
+
+.light {
+  --text-dark-blue: hsl(235, 21%, 11%); /* text-todo */
+  --very-dark-blue: hsl(0, 0%, 98%); /* bottom-bg */
+  --very-dark-d-blue: hsl(236, 33%, 92%);
+  --light-gray-blue: hsl(233, 11%, 84%);
+  --dark-gray-blue: hsl(236, 9%, 61%);
+  --very-dark-gray-blue: hsl(235, 19%, 35%);
+  --bg-mobile: url("./images/bg-mobile-light.jpg");
+  --bg-desktop: url("./images/bg-desktop-light.jpg");
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  line-height: 1.2;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: var(--red);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+  font-weight: normal;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.top {
+  flex: 0.4;
+  background-image: var(--bg-mobile);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.bottom {
+  flex: 0.6;
+  background-color: var(--very-dark-blue);
+}
+
+.todo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.todo-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-title > h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--light-gray-blue);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.btn-theme {
+  font-size: 2rem;
+  color: var(--light-gray-blue);
+}
+
+.todo-form {
+  border-radius: 10px;
+  height: 50px;
+  overflow: hidden;
+  background-color: var(--very-dark-d-blue);
+}
+
+.todo-form input {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  padding: 4px 18px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--dark-gray-blue);
+}
+
+.todos {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* padding: 4px 8px; */
+  border-radius: 5px;
+  background-color: var(--very-dark-d-blue);
+}
+
+.box {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  padding: 5px;
+  border-bottom: 1px solid var(--very-dark-gray-blue);
+}
+
+.box > p {
+  color: var(--text-dark-blue);
+}
+
+.check {
+  border: 2px solid var(--primary-check-bg);
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background-color: aliceblue;
+}
+
+.active-check {
+  border: 1px solid var(--primary-check-bg);
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background-color: var(--primary-check-bg);
+}
+
+.box-text {
+  font-size: 1rem;
+  color: var(--text-dark-blue);
+  text-align: left;
+}
+
+.box-text-active {
+  font-size: 1rem;
+  color: var(--dark-gray-blue);
+  text-align: left;
+  text-decoration: line-through;
+}
+
+.edit-btn {
+  color: green;
+}
+
+.delete-btn {
+  color: red;
+}
+
+.todos-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  padding: 0 8px;
+  padding-bottom: 10px;
+  color: var(--very-dark-gray-blue);
+}
+
+.todos-status button {
+  color: var(--very-dark-gray-blue);
+}
+
+.status-button-active {
+  color: var(--primary-bright-blue);
+}
+
+@media screen and (min-width: 500px) {
+  .top {
+    background-image: var(--bg-desktop);
+  }
+}
