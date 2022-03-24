@@ -12,3 +12,4 @@ This repo basically contains challenges from **frontendmentor**.
 - 3-column-preview-card-component-main https://empash-3-column-preview-card-component-main.netlify.app
 - fylo-dark-theme-landing-page-master https://empash-fylo-dark-theme-landing-page-master.netlify.app/
 - todo-app-main https://empash-todo-app-main.netlify.app
+- advice-generator-app-main https://empash-advice-generator-app-main.netlify.app/
