@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+
+:root {
+  /* colors */
+  --p-light-cyan: hsl(193, 38%, 86%);
+  --p-neon-green: hsl(150, 100%, 66%);
+  --n-grayish-blue: hsl(217, 19%, 38%);
+  --n-d-grayish-blue: hsl(217, 19%, 24%);
+  --n-d-blue: hsl(218, 23%, 16%);
+
+  /* screen */
+  --mobile: 375px;
+  --desktop: 1440px;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100%;
+  line-height: 1.2;
+  font-family: "Manrope", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+  font-weight: normal;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--n-d-blue);
+  display: grid;
+  place-items: center;
+  padding: 0 20px;
+}
+
+.card {
+  max-width: 450px;
+  width: 100%;
+  background-color: var(--n-d-grayish-blue);
+  padding: 40px 25px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.card h3 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  color: var(--p-neon-green);
+}
+.card h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--p-light-cyan);
+}
+
+.icon {
+  margin: 15px 0;
+}
+.icon > img {
+  width: 100%;
+}
+
+.icon-image-desktop {
+  display: none;
+}
+.icon-image-mobile {
+  display: block;
+}
+
+.toggle {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  background-color: var(--p-neon-green);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s linear;
+}
+
+.toggle > img {
+  display: block;
+  width: 20px;
+}
+
+.toggle:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 15px 5px var(--p-neon-green);
+}
+
+@media screen and (min-width: 500px) {
+  .icon-image-desktop {
+    display: block;
+  }
+  .icon-image-mobile {
+    display: none;
+  }
+}
