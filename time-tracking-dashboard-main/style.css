@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+:root {
+  --p-blue: hsl(246, 80%, 60%);
+  --p-light-orange: hsl(15, 100%, 70%);
+  --p-soft-blue: hsl(195, 74%, 62%);
+  --p-light-red: hsl(348, 100%, 68%);
+  --p-lime-green: hsl(145, 58%, 55%);
+  --p-violet: hsl(264, 64%, 52%);
+  --p-soft-orange: hsl(43, 84%, 65%);
+  --n-v-dark-blue: hsl(226, 43%, 10%);
+  --n-dark-blue: hsl(235, 46%, 20%);
+  --n-d-blue: hsl(235, 45%, 61%);
+  --n-pale-blue: hsl(236, 100%, 87%);
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100%;
+  font-family: "Rubik", sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--n-v-dark-blue);
+  padding: 20px;
+}
+
+main {
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  gap: 10px;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.profile {
+  flex: 0.5;
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  background-color: var(--p-blue);
+}
+
+.profile > img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--n-pale-blue);
+}
+
+.profile > div {
+  color: var(--n-pale-blue);
+}
+
+.profile span {
+  font-size: 0.75rem;
+}
+
+.timeframe {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--n-dark-blue);
+  padding: 20px;
+}
+
+.timeframe > button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--n-d-blue);
+  transition: all 0.3s linear;
+}
+
+.timeframe > button:hover,
+.timeframe > button.active {
+  color: var(--n-pale-blue);
+}
+
+.activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card:nth-child(1) {
+  background-color: var(--p-light-orange);
+}
+
+.card:nth-child(2) {
+  background-color: var(--p-soft-blue);
+}
+
+.card:nth-child(3) {
+  background-color: var(--p-light-red);
+}
+
+.card:nth-child(4) {
+  background-color: var(--p-lime-green);
+}
+
+.card:nth-child(5) {
+  background-color: var(--p-violet);
+}
+
+.card:nth-child(6) {
+  background-color: var(--p-soft-orange);
+}
+
+.card-img {
+  width: 100%;
+  height: 25px;
+  position: relative;
+  background-color: var(--p-light-orange);
+  overflow: hidden;
+}
+
+.card:nth-child(2) .card-img {
+  background-color: var(--p-soft-blue);
+}
+.card:nth-child(3) .card-img {
+  background-color: var(--p-light-red);
+}
+.card:nth-child(4) .card-img {
+  background-color: var(--p-lime-green);
+}
+.card:nth-child(5) .card-img {
+  background-color: var(--p-violet);
+}
+.card:nth-child(6) .card-img {
+  background-color: var(--p-soft-orange);
+}
+
+.card-img > img {
+  position: absolute;
+  right: 10%;
+  width: 40px;
+}
+
+.card-container {
+  position: relative;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--n-pale-blue);
+  background-color: var(--n-dark-blue);
+  border-radius: 15px 15px 0 0;
+  gap: 10px;
+}
+
+.card-container:hover {
+  background-color: var(--p-blue);
+  /* color: var(--p-blue); */
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-top > button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.3s linear;
+}
+
+.card-top > button:hover {
+  opacity: 1;
+}
+
+.card-top > button > img {
+  width: 12px;
+}
+
+.card-top > h3 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.card-mid > h2 {
+  /* text-align: center; */
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.card-bottom {
+  font-size: 0.8rem;
+  display: flex;
+  gap: 3px;
+}
+
+@media screen and (min-width: 500px) {
+  main {
+    grid-template-columns: 250px 1fr;
+  }
+  .profile,
+  .timeframe {
+    flex-direction: column;
+  }
+
+  .timeframe {
+    align-items: flex-start;
+  }
+}
