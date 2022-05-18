@@ -1,0 +1,20 @@
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+}
+
+@mixin gbutton($bg, $color, $bc, $weight: 400) {
+  font-size: 0.9rem;
+  color: $color;
+  background-color: $bg;
+  font-weight: $weight;
+  border: 2px solid $bc;
+  border-radius: 15px;
+  padding: 7px 20px;
+}
+
+@mixin rwd($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}

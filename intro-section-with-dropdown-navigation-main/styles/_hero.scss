@@ -1,0 +1,76 @@
+.hero {
+  height: 100%;
+  max-width: $lg;
+  margin: auto;
+  @include flex(column-reverse);
+  gap: 2rem;
+
+  &__container {
+    @include flex(column);
+    gap: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  &__text {
+    font-size: 1rem;
+    color: $n-m-gray;
+  }
+
+  &__btn {
+    @include gbutton($n-a-black, #fff, $n-a-black, 700);
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    width: fit-content;
+    margin: auto;
+  }
+
+  &__asset {
+    @include flex(row);
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  &__img {
+    & > img {
+      &:first-child {
+        display: none;
+      }
+      &:last-child {
+        display: block;
+      }
+    }
+  }
+}
+
+@include rwd($md) {
+  .hero {
+    height: 500px;
+    @include flex(row);
+    &__container {
+      text-align: left;
+      justify-content: flex-end;
+      //   align-items: center;
+      gap: 2rem;
+
+      & > * {
+        // border: solid red;
+        margin: 0;
+      }
+    }
+
+    &__img {
+      & > img {
+        &:first-child {
+          display: block;
+          height: 100%;
+          width: 100%;
+        }
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+}
