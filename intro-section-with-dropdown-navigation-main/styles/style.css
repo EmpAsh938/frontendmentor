@@ -194,6 +194,10 @@ main {
   padding: 1rem;
 }
 
+.hero__title {
+  font-size: clamp(3rem, 5vw, 1.5rem);
+}
+
 .hero__text {
   font-size: 1rem;
   color: dimgray;
