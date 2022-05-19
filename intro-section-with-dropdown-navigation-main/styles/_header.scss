@@ -18,6 +18,40 @@
         display: none;
         align-items: center;
         justify-content: space-between;
+        & > li {
+          position: relative;
+
+          & > .dropdown {
+            position: absolute;
+            top: 100%;
+            left: -25%;
+            width: 150%;
+            height: fit-content;
+            padding: 1rem;
+            background-color: $n-a-white;
+            border-radius: 4px;
+            z-index: 4;
+            display: none;
+            gap: 1rem;
+            & > div {
+              @include flex(row);
+              justify-content: space-between;
+              align-items: center;
+              gap: 1rem;
+
+              & > h3 {
+                flex: 1;
+                font-size: 0.8rem;
+                font-weight: 400;
+                text-align: left;
+              }
+            }
+          }
+          &:hover .dropdown {
+            @include flex(column);
+            // border: solid red;
+          }
+        }
       }
     }
 
@@ -47,7 +81,9 @@
             @include flex(row);
             align-items: center;
             gap: 0.7rem;
-            &:hover {
+
+            a:hover,
+            h3:hover {
               color: $n-a-black;
             }
           }
