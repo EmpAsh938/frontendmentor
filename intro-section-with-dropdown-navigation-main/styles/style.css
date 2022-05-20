@@ -138,6 +138,10 @@ main {
   text-align: left;
 }
 
+.nav__container--left > ul > li .img-up {
+  display: none;
+}
+
 .nav__container--left > ul > li:hover .dropdown {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -146,6 +150,14 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.nav__container--left > ul > li:hover .img-up {
+  display: block;
+}
+
+.nav__container--left > ul > li:hover .img-down {
+  display: none;
 }
 
 .nav__container--right {

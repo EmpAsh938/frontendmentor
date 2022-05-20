@@ -49,9 +49,20 @@
               }
             }
           }
+          .img-up {
+            display: none;
+          }
           &:hover .dropdown {
             @include flex(column);
             // border: solid red;
+          }
+          &:hover {
+            .img-up {
+              display: block;
+            }
+            .img-down {
+              display: none;
+            }
           }
         }
       }
