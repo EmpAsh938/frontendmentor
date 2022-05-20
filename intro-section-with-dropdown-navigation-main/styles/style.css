@@ -96,7 +96,7 @@ main {
 .nav__container--left > ul > li > .dropdown {
   position: absolute;
   top: 100%;
-  left: -25%;
+  left: -15%;
   width: 150%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -104,6 +104,9 @@ main {
   padding: 1rem;
   background-color: #fafafa;
   border-radius: 4px;
+  border: solid #fafafa;
+  -webkit-box-shadow: 0 0 1px dimgray;
+          box-shadow: 0 0 1px dimgray;
   z-index: 4;
   display: none;
   gap: 1rem;

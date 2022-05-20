@@ -24,12 +24,14 @@
           & > .dropdown {
             position: absolute;
             top: 100%;
-            left: -25%;
+            left: -15%;
             width: 150%;
             height: fit-content;
             padding: 1rem;
             background-color: $n-a-white;
             border-radius: 4px;
+            border: solid $n-a-white;
+            box-shadow: 0 0 1px $n-m-gray;
             z-index: 4;
             display: none;
             gap: 1rem;
