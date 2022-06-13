@@ -1,0 +1,566 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap");
+
+:root {
+  /* colors */
+  --p-light-red: hsl(356, 100%, 66%);
+  --p-v-light-red: hsl(355, 100%, 74%);
+  --p-v-dark-blue: hsl(208, 49%, 24%);
+  --n-white: hsl(0, 0%, 100%);
+  --n-grayish-blue: hsl(240, 2%, 79%);
+  --n-v-dark-grayish-blue: hsl(207, 13%, 34%);
+  --n-v-dark-blue: hsl(240, 10%, 16%);
+  --g-v-light-red: hsl(13, 100%, 72%);
+  --g-light-red: hsl(353, 100%, 62%);
+  --g-v-dark-gray-blue: hsl(237, 17%, 21%);
+  --g-v-dark-d-blue: hsl(237, 23%, 32%);
+  /* screens */
+  --sc-sm: 570px;
+  --sc-md: 768px;
+  --sc-lg: 1280px;
+}
+
+/* resets  */
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "Ubuntu", "Overpass", sans-serif;
+  background-color: var(--n-white);
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* utility css  */
+
+.btn {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.7rem 2rem;
+  border-radius: 25px;
+  transition: all 0.3s linear;
+}
+
+.btn-primary {
+  color: var(--g-light-red);
+  background-color: var(--n-white);
+}
+
+.btn-neutral {
+  color: var(--n-white);
+  background-color: transparent;
+}
+
+.btn-primary:hover {
+  color: var(--n-white);
+  background-color: var(--g-light-red);
+}
+
+.text-title {
+  font-family: "Overpass", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+/* sidemenu  */
+
+.sidemenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.sidemenu.active {
+  display: grid;
+  place-items: center;
+}
+
+.sidemenu-lists {
+  max-width: 400px;
+  width: 100%;
+  background-color: var(--n-white);
+  padding: 2rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidemenu-links {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sidemenu-links > button {
+  margin: 0.5rem 0;
+}
+
+.sidemenu-links > button:first-child {
+  color: var(--g-light-red);
+  border: 2px solid var(--g-light-red);
+}
+.sidemenu-links > button:first-child:hover {
+  color: var(--n-white);
+  border: 2px solid var(--g-light-red);
+  background-color: var(--g-light-red);
+}
+
+.sidemenu-links > button:last-child {
+  background-image: linear-gradient(
+    to left,
+    var(--g-light-red),
+    var(--g-v-light-red)
+  );
+  color: var(--n-white);
+}
+
+.sidemenu-links > button:last-child:hover {
+  background-image: linear-gradient(
+    to left,
+    var(--g-light-red),
+    var(--g-light-red),
+    var(--g-v-light-red)
+  );
+}
+
+.sidemenu-links-title {
+  position: relative;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+}
+
+.sidemenu-sublinks {
+  display: none;
+}
+
+.sidemenu-sublinks.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.9rem;
+  color: var(--n-v-dark-grayish-blue);
+}
+
+.sidemenu-sublinks a:hover {
+  cursor: pointer;
+  color: var(--n-v-dark-blue);
+}
+
+/* header starts here */
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 70vh;
+  padding: 2rem;
+  border-bottom-left-radius: 90px;
+  background-image: url("./images/bg-pattern-intro-mobile.svg"),
+    linear-gradient(
+      to right,
+      var(--g-v-light-red),
+      var(--g-light-red),
+      var(--g-light-red)
+    );
+  background-position: left;
+  background-size: 200%;
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  max-width: var(--sc-lg);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.navbar-lists {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--n-white);
+}
+
+.navbar-links > span {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.navbar-right {
+  display: none;
+}
+
+/* header hero */
+
+.hero {
+  margin-top: 5rem;
+  display: grid;
+  place-items: center;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  color: var(--n-white);
+}
+
+.hero-container > .text-title {
+  font-size: clamp(2.5rem, 3vw, 3rem);
+  text-align: center;
+}
+
+.hero-container > p {
+  text-align: center;
+  font-size: clamp(1.1rem, 3vw, 1.2rem);
+  font-family: "Overpass", sans-serif;
+  font-weight: 400;
+}
+
+.hero-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-btn > button {
+  display: inline;
+}
+
+.hero-btn > button:last-child {
+  /* margin-left: 0.5rem; */
+  background-color: transparent;
+  color: var(--n-white);
+  border: 2px solid var(--n-white);
+}
+
+.hero-btn > button:last-child:hover {
+  background-color: var(--n-white);
+  color: var(--g-light-red);
+}
+
+/* features  */
+
+.features {
+  margin: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.features > .text-title {
+  font-size: 2.2rem;
+  text-align: center;
+  color: var(--p-v-dark-blue);
+}
+
+.features-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.features-container > * {
+  flex: 1;
+}
+
+.features-img > img {
+  width: 350px;
+  margin: auto;
+}
+
+.features-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.features-desc > div > h3 {
+  color: var(--p-v-dark-blue);
+  font-size: 1.7rem;
+}
+
+.features-desc > div > p {
+  margin-top: 0.5rem;
+  font-family: "Overpass", sans-serif;
+  font-weight: 300;
+  color: var(--n-v-dark-grayish-blue);
+  text-align: center;
+}
+
+/* illustration section */
+
+.illustration {
+  margin-top: 15rem;
+  margin-bottom: 5rem;
+  border-top-right-radius: 150px;
+  border-bottom-left-radius: 150px;
+  background-image: linear-gradient(
+    to right,
+    var(--g-v-dark-d-blue),
+    var(--g-v-dark-gray-blue)
+  );
+  padding: 5rem;
+  position: relative;
+}
+
+.illustration-img {
+  position: absolute;
+  width: 400px;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.illustration-desc {
+  max-width: var(--sc-md);
+  margin: 0 auto;
+  margin-top: 10rem;
+  color: var(--n-white);
+}
+
+.illustration-desc > p {
+  font-family: "Overpass", sans-serif;
+  text-align: center;
+}
+
+/* footer */
+
+footer {
+  background-color: var(--n-v-dark-blue);
+  color: var(--n-white);
+  padding: 2rem;
+  border-top-right-radius: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+footer > div,
+footer > div > div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+footer > div {
+  margin: 1rem 0;
+}
+
+footer > div > div {
+  margin: 0.5rem 0;
+  font-family: "Overpass", sans-serif;
+}
+
+footer > div > img {
+  width: 100px;
+  margin: 0 auto;
+}
+
+footer h3 {
+  font-weight: 400;
+}
+
+footer a {
+  font-family: "Ubuntu", sans-serif;
+  color: var(--n-grayish-blue);
+  font-weight: 200;
+  font-size: 0.85rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* responsive design */
+
+@media screen and (min-width: 420px) {
+  .hero-btn {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .sidemenu {
+    display: none;
+  }
+  header {
+    background-image: url("./images/bg-pattern-intro-desktop.svg"),
+      linear-gradient(
+        to right,
+        var(--g-v-light-red),
+        var(--g-light-red),
+        var(--g-light-red)
+      );
+    background-position: left;
+    background-size: 170%;
+    background-repeat: no-repeat;
+  }
+  .navbar-left {
+    flex: none;
+  }
+  .navbar-lists {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: relative;
+  }
+
+  .navbar-sublinks {
+    position: absolute;
+    width: 120px;
+    background-color: var(--n-white);
+    color: var(--n-v-dark-grayish-blue);
+    font-size: 0.9rem;
+    left: -10%;
+    top: 100%;
+    padding: 1rem;
+    border-radius: 4px;
+    display: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    opacity: 0;
+  }
+
+  .navbar-links:hover .navbar-sublinks {
+    opacity: 1;
+  }
+
+  .navbar-arrow {
+    transition: all 0.3s linear;
+  }
+
+  .navbar-links:hover .navbar-arrow {
+    transform: rotate(180deg);
+  }
+
+  .navbar-sublinks a:hover {
+    color: var(--n-v-dark-blue);
+    cursor: pointer;
+  }
+
+  .navbar-menu {
+    display: none;
+  }
+  .navbar-right {
+    display: block;
+  }
+
+  .features-container {
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+
+  .features-container:nth-child(1) {
+    flex-direction: row;
+  }
+
+  .features-desc > div > h3 {
+    text-align: left;
+  }
+  .features-img > img {
+    width: 100%;
+    height: 100%;
+  }
+  .features-desc > div > p {
+    text-align: left;
+  }
+
+  .illustration {
+    margin-top: 5rem;
+    display: flex;
+    height: 60vh;
+  }
+
+  .illustration-img {
+    width: 450px;
+    top: -10%;
+    left: 25%;
+  }
+
+  .illustration-desc {
+    width: fit-content;
+    margin: 0;
+    margin-left: 50%;
+  }
+
+  .illustration-desc > .text-title {
+    text-align: left;
+  }
+
+  .illustration-desc > p {
+    margin-top: 1rem;
+    text-align: left;
+  }
+  footer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  footer > div,
+  footer > div > div {
+    text-align: left;
+  }
+}
