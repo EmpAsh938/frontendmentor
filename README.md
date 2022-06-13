@@ -16,3 +16,4 @@ This repo basically contains challenges from **frontendmentor**.
 - time-tracking-dashboard-main https://empash-time-tracking-dashboard-main.netlify.app
 - bookmark-landing-page-master https://empash-bookmark-landing-page-master.netlify.app/
 - intro-section https://empash-intro-section.netlify.app/
+- blogr-landing-page https://empash-blogr-landing-page-main.netlify.app/
