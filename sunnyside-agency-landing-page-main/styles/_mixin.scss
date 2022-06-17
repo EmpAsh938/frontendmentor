@@ -1,0 +1,40 @@
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+}
+
+@mixin btn-normal($fs, $txt-color, $bg-color) {
+  font-size: $fs;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: 4rem;
+  font-weight: 600;
+  color: $txt-color;
+  background-color: $bg-color;
+}
+
+@mixin header-one($fs, $txt-color) {
+  font-size: $fs;
+  color: $txt-color;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@mixin header-two($fs, $text-color) {
+  font-size: $fs;
+  color: $text-color;
+  font-weight: 800;
+}
+
+@mixin text-desc($fs, $txt-color) {
+  font-size: $fs;
+  color: $txt-color;
+  font-weight: 500;
+}
+
+@mixin rwd($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}

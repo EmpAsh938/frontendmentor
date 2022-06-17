@@ -1,0 +1,95 @@
+.about {
+  @include flex(column);
+
+  &__cards {
+    min-height: 600px;
+    height: 100%;
+    @include flex(column-reverse);
+
+    &--text {
+      @include flex(column);
+      padding: 3rem;
+      gap: 2rem;
+      & > h3 {
+        @include header-two(3rem, $n-v-d-d-blue);
+        text-align: center;
+      }
+      & > p {
+        @include text-desc(1.1rem, $n-d-g-blue);
+        text-align: center;
+      }
+      & > a {
+        @include btn-normal(1rem, $n-v-d-d-blue, transparent);
+        width: fit-content;
+        text-transform: capitalize;
+        cursor: pointer;
+      }
+    }
+    &--img {
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &--plate {
+      position: relative;
+
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
+      & > div {
+        max-width: $sm;
+        width: 100%;
+        padding: 0 1rem;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        & > h3 {
+          @include header-two(2rem, $p-d-d-cyan);
+          text-align: center;
+          margin-bottom: 1rem;
+        }
+
+        & > p {
+          @include text-desc(1rem, $p-d-d-cyan);
+          text-align: center;
+          line-height: 2;
+        }
+      }
+    }
+  }
+}
+
+@include rwd(1000px) {
+  .about {
+    &__cards {
+      @include flex(row);
+
+      & > * {
+        flex: 1;
+      }
+      &--text {
+        padding: 5rem 8rem;
+
+        & > h3 {
+          font-size: 3.2rem;
+          text-align: left;
+        }
+
+        & > p {
+          text-align: left;
+        }
+      }
+      &--plate {
+        & > div {
+          & > h3 {
+            @include header-two(2.1rem, $n-v-d-d-blue);
+          }
+        }
+      }
+    }
+  }
+}

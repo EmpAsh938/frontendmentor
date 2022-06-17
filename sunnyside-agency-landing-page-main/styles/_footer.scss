@@ -1,0 +1,26 @@
+.footer {
+  @include flex(column);
+  align-items: center;
+  padding: 2rem 1rem;
+  gap: 3rem;
+  background-color: $p-d-m-cyan;
+
+  &__links {
+    @include flex(row);
+    gap: 1rem;
+    text-align: center;
+    color: $p-d-d-cyan;
+    transition: all 0.3s linear;
+
+    & > li:hover {
+      cursor: pointer;
+      color: $n-white;
+    }
+  }
+  &__social {
+    @include flex(row);
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+  }
+}

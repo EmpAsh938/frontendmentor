@@ -1,0 +1,53 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  font-family: "Barlow", sans-serif;
+  line-height: 1.5;
+}
+
+a,
+li,
+ul {
+  list-style-type: none;
+  text-decoration: none;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.img-sm {
+  display: block;
+}
+
+.img-med {
+  display: none;
+}
+
+@include rwd($sm) {
+  .img-med {
+    display: block;
+  }
+  .img-sm {
+    display: none;
+  }
+}
