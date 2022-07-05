@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- :root {
+          --p-s-cyan: #26c0ab;
+          --n-v-d-cyan: #00494d;
+          --n-d-g-cyan: #5e7a7d;
+          --n-g-cyan: #7f9c9f;
+          --n-l-g-cyan: #c5e4e7;
+          --n-v-l-g-cyan: #f4fafa;
+          --n-white: #ffffff;
+        } -->
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .activetip {
+          background-color: #c5e4e7;
+          color: #00494d;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="min-h-screen bg-[#c5e4e7] grid place-items-center">
+      <section class="max-w-3xl py-5">
+        <div class="py-10">
+          <h1
+            class="text-2xl w-[100px] m-auto break-all text-center tracking-[10px] uppercase font-bold text-[#00494d]"
+          >
+            splitter
+          </h1>
+        </div>
+        <div
+          class="flex flex-col gap-[2rem] md:flex-row bg-[#ffff] p-5 rounded-xl"
+        >
+          <!-- left box -->
+          <div class="p-5 flex-1 flex flex-col justify-between gap-2">
+            <div class="flex flex-col gap-1">
+              <div class="flex justify-between">
+                <h3 class="text-[#00494d] font-bold">Bill</h3>
+                <p class="text-sm text-red-500 invisible capitalize billerror">
+                  enter valid bill amount
+                </p>
+              </div>
+              <div
+                class="flex px-2 py-1 border-2 border-solid border-slate-200 rounded"
+              >
+                <span>$</span>
+                <input
+                  type="text"
+                  class="flex-1 focus:outline-none text-right"
+                  id="billamount"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <div class="mb-1">
+                <h3 class="text-[#00494d] font-bold">Select Tip %</h3>
+              </div>
+              <div class="grid grid-cols-3 gap-2">
+                <span
+                  class="tipbutton bg-[#00494d] text-center py-2 rounded-lg text-[#ffff] font-bold text-2xl hover:bg-[#c5e4e7] hover:text-[#00494d] cursor-pointer"
+                  >5%</span
+                >
+                <span
+                  class="tipbutton bg-[#00494d] text-center py-2 rounded-lg text-[#ffff] font-bold text-2xl hover:bg-[#c5e4e7] hover:text-[#00494d] cursor-pointer"
+                  >10%</span
+                >
+                <span
+                  class="tipbutton bg-[#00494d] text-center py-2 rounded-lg text-[#ffff] font-bold text-2xl hover:bg-[#c5e4e7] hover:text-[#00494d] cursor-pointer"
+                  >15%</span
+                >
+                <span
+                  class="tipbutton bg-[#00494d] text-center py-2 rounded-lg text-[#ffff] font-bold text-2xl hover:bg-[#c5e4e7] hover:text-[#00494d] cursor-pointer"
+                  >25%</span
+                >
+                <span
+                  class="tipbutton bg-[#00494d] text-center py-2 rounded-lg text-[#ffff] font-bold text-2xl hover:bg-[#c5e4e7] hover:text-[#00494d] cursor-pointer"
+                  >50%</span
+                >
+                <div
+                  class="bg-[#ffff] rounded-lg text-[#00494d] overflow-hidden"
+                >
+                  <input
+                    type="tel"
+                    placeholder="custom"
+                    class="w-full h-full pr-1 bg-transparent text-right font-normal text-xl text-[#00494d] placeholder:text-center placeholder:text-[#00494d] focus:outline-none"
+                    id="customtip"
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between">
+                <h3 class="text-base text-[#00494d] font-bold">
+                  Number of People
+                </h3>
+                <p class="text-red-500 text-sm invisible capitalize peoplerror">
+                  cant be 0 or text
+                </p>
+              </div>
+              <div
+                class="flex border-2 border-solid border-slate-200 p-1 rounded"
+              >
+                <span class="mr-1 mt-1"
+                  ><ion-icon name="person-outline"></ion-icon
+                ></span>
+                <input
+                  type="text"
+                  class="flex-1 text-right focus:outline-none"
+                  id="peopleinput"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- right box -->
+          <div
+            class="bg-[#00494d] rounded-xl p-10 flex-1 flex flex-col justify-between gap-2"
+          >
+            <div class="flex flex-col gap-4 mb-10 md:m-0">
+              <div class="flex justify-between items-center">
+                <div class="flex flex-col gap-0">
+                  <h3 class="text-[#ffff] text-base capitalize">Tip amount</h3>
+                  <span class="text-sm text-[#7f9c9f]">/ person</span>
+                </div>
+                <div
+                  class="text-[#26c0ab] text-3xl font-extrabold"
+                  id="tipamount"
+                >
+                  $0.00
+                </div>
+              </div>
+              <div class="flex justify-between items-center">
+                <div class="flex flex-col gap-0">
+                  <h3 class="text-[#ffff] text-base capitalize">Total</h3>
+                  <span class="text-sm text-[#7f9c9f]">/ person</span>
+                </div>
+                <div class="text-[#26c0ab] text-3xl font-bold" id="totalbill">
+                  $0.00
+                </div>
+              </div>
+            </div>
+            <button
+              class="uppercase tracking-[1px] text-lg text-[#00494d] bg-[#26c0ab] rounded py-2"
+              id="reset"
+            >
+              reset
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
